@@ -93,7 +93,7 @@ p_all <- ggplot(filt_ave, aes(x = Month_n, y = mean_CN)) +
   theme(legend.position = "none")
 p_all
 ggsave('output/figures_pdf/all_locations_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/all_locations_CN_log10_filtered.tiff', device = 'tiff')
+ggsave('output/figures_tiff/all_locations_CN_log10_filtered.tiff', device = 'tiff', dpi = 150)
 
 # individual plots for each sampling location 
 # Creran data 
@@ -134,7 +134,7 @@ p <- ggplot(filt1_creran_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.si
   theme(legend.position = "none")
 p
 ggsave('output/figures_pdf/creran_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/creran_CN_log10_filtered.tiff', device = 'tiff')
+ggsave('output/figures_tiff/creran_CN_log10_filtered.tiff', device = 'tiff', dpi = 150)
 
 # Fairlie data
 filt1_Fairlie_dat <- preds %>%
@@ -173,7 +173,7 @@ p_f <- ggplot(filt1_Fairlie_ave, aes(x = Month_n, y = mean_CN, colour = Sampling
   theme(legend.position = "none")
 p_f
 ggsave('output/figures_pdf/fairlie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/fairlie_CN_log10_filtered.tiff', device = 'tiff')
+ggsave('output/figures_tiff/fairlie_CN_log10_filtered.tiff', device = 'tiff', dpi = 150)
 
 # Portavadie data
 filt1_Portavadie_dat <- preds %>%
@@ -212,7 +212,7 @@ p_p <- ggplot(filt1_Portavadie_ave, aes(x = Month_n, y = mean_CN, colour = Sampl
   theme(legend.position = "none")
 p_p
 ggsave('output/figures_pdf/portavadie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/portavadie_CN_log10_filtered.tiff', device = 'tiff')
+ggsave('output/figures_tiff/portavadie_CN_log10_filtered.tiff', device = 'tiff', dpi = 150)
 
 # Largs data
 filt1_Largs_dat <- preds %>%
@@ -251,7 +251,7 @@ p_l <- ggplot(filt1_Largs_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.s
   theme(legend.position = "none")
 p_l
 ggsave('output/figures_pdf/largs_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/largs_CN_log10_filtered.tiff', device = 'tiff')
+ggsave('output/figures_tiff/largs_CN_log10_filtered.tiff', device = 'tiff', dpi = 150)
 
 # output data files
 # all predicted copy number data where CT.value greater than 41 and less than 
@@ -279,16 +279,16 @@ write.csv(filt1_all_ave, 'output/data_summaries/filtered_meanData.csv')
 tar_name <- unique(calib_dat$Target)[1:8]
 divex_1_8 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
 ggsave('output/figures_pdf/calibration_curves_1_8.pdf', divex_1_8, device = 'pdf')
-ggsave('output/figures_tiff/calibration_curves_1_8.tiff', divex_1_8, device = 'tiff')
+ggsave('output/figures_tiff/calibration_curves_1_8.tiff', divex_1_8, device = 'tiff', dpi = 150)
 
 tar_name <- unique(calib_dat$Target)[9:16]
 divex_9_16 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
 ggsave('output/figures_pdf/calibration_curves_9_16.pdf', divex_9_16, device = 'pdf')
-ggsave('output/figures_tiff/calibration_curves_9_16.tiff', divex_9_16, device = 'tiff')
+ggsave('output/figures_tiff/calibration_curves_9_16.tiff', divex_9_16, device = 'tiff', dpi = 150)
 
 tar_name <- unique(calib_dat$Target)[17:21]
 divex_17_19 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
 mod_17_19 <- divex_17_19 + plot_spacer() + plot_spacer() + plot_spacer() 
 ggsave('output/figures_pdf/calibration_curves_17_21.pdf', mod_17_19, device = 'pdf')
-ggsave('output/figures_tiff/calibration_curves_17_21.tiff', mod_17_19, device = 'tiff')
+ggsave('output/figures_tiff/calibration_curves_17_21.tiff', mod_17_19, device = 'tiff', dpi = 150)
 

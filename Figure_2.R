@@ -48,4 +48,4 @@ SC.plot <- ggplot(pcr, aes(x = SQ, y = Cq)) +
         axis.text.y = element_text(size = 11))
 
 ggsave("output/figures_pdf/standard_curve_LOD_LOD3_LOQ.pdf", device = "pdf")
-ggsave("output/figures_tiff/standard_curve_LOD_LOD3_LOQ.tiff", device = "tiff", dpi = 150)
+ggsave("output/figures_tiff/standard_curve_LOD_LOD3_LOQ.tiff", device = "tiff", dpi = 100)

@@ -22,7 +22,7 @@ pcr <- read.table('data/positive_cont.txt', header = TRUE, sep = "\t",
 lod_est <- calib_lod(pcr)
 
 # write this file as output
-write.csv(lod_est$assaySum, 'output/assay_summary.csv')
+write.csv(lod_est$assaySum, 'output/data_summaries/assay_summary.csv')
 
 # extract LOD, LOD3 and LOQ values
 LOD <- lod_est$assaySum[1, 6]
@@ -47,5 +47,5 @@ SC.plot <- ggplot(pcr, aes(x = SQ, y = Cq)) +
         axis.text.x = element_text(size = 11),
         axis.text.y = element_text(size = 11))
 
-ggsave("output/standard_curve_LOD_LOD3_LOQ.pdf", device = "pdf")
-# ggsave("output/standard_curve_LOD_LOD3_LOQ.tiff", device = "tiff")
+ggsave("output/figures_pdf/standard_curve_LOD_LOD3_LOQ.pdf", device = "pdf")
+ggsave("output/figures_tiff/standard_curve_LOD_LOD3_LOQ.tiff", device = "tiff")

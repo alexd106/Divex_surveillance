@@ -92,8 +92,8 @@ p_all <- ggplot(filt_ave, aes(x = Month_n, y = mean_CN)) +
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p_all
-ggsave('output/all_locations_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-# ggsave('output/all_locations_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
+ggsave('output/figures_pdf/all_locations_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/all_locations_CN_log10_filtered.tiff', device = 'tiff')
 
 # individual plots for each sampling location 
 # Creran data 
@@ -133,8 +133,8 @@ p <- ggplot(filt1_creran_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.si
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p
-ggsave('output/creran_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-# ggsave('output/creran_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
+ggsave('output/figures_pdf/creran_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/creran_CN_log10_filtered.tiff', device = 'tiff')
 
 # Fairlie data
 filt1_Fairlie_dat <- preds %>%
@@ -172,8 +172,8 @@ p_f <- ggplot(filt1_Fairlie_ave, aes(x = Month_n, y = mean_CN, colour = Sampling
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p_f
-ggsave('output/fairlie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-# ggsave('output/fairlie_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
+ggsave('output/figures_pdf/fairlie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/fairlie_CN_log10_filtered.tiff', device = 'tiff')
 
 # Portavadie data
 filt1_Portavadie_dat <- preds %>%
@@ -211,8 +211,8 @@ p_p <- ggplot(filt1_Portavadie_ave, aes(x = Month_n, y = mean_CN, colour = Sampl
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p_p
-ggsave('output/portavadie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-# ggsave('output/portavadie_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
+ggsave('output/figures_pdf/portavadie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/portavadie_CN_log10_filtered.tiff', device = 'tiff')
 
 # Largs data
 filt1_Largs_dat <- preds %>%
@@ -250,8 +250,8 @@ p_l <- ggplot(filt1_Largs_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.s
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p_l
-ggsave('output/largs_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-# ggsave('output/largs_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
+ggsave('output/figures_pdf/largs_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/largs_CN_log10_filtered.tiff', device = 'tiff')
 
 # output data files
 # all predicted copy number data where CT.value greater than 41 and less than 
@@ -263,7 +263,7 @@ filt1_all_dat <- preds %>%
   mutate(rate = n/3) %>%
   filter(rate > 0.5) # add to remove n < 2 replicates
 
-write.csv(filt1_all_dat, 'output/filtered_allData.csv')
+write.csv(filt1_all_dat, 'output/data_summaries/filtered_allData.csv')
 
 # average predicted copy number (averaged over technical replicates) where 
 # CT.value greater than 41 and less than two technical replicates excluded 
@@ -273,20 +273,22 @@ filt1_all_ave <- filt1_all_dat %>%
   mutate(Time = as.Date(ymd(paste0(Year,Month,"01")), format ="%m.%Y")) %>%
   mutate(Month_n = month(Time))
 
-write.csv(filt1_all_ave, 'output/filtered_meanData.csv')
+write.csv(filt1_all_ave, 'output/data_summaries/filtered_meanData.csv')
 
 # all standard curve plots for each sampling occasion
 tar_name <- unique(calib_dat$Target)[1:8]
 divex_1_8 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
-ggsave('output/calibration_curves_1_8.pdf', divex_1_8, device = 'pdf')
+ggsave('output/figures_pdf/calibration_curves_1_8.pdf', divex_1_8, device = 'pdf')
+ggsave('output/figures_tiff/calibration_curves_1_8.tiff', divex_1_8, device = 'tiff')
 
 tar_name <- unique(calib_dat$Target)[9:16]
 divex_9_16 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
-ggsave('output/calibration_curves_9_16.pdf', divex_9_16, device = 'pdf')
+ggsave('output/figures_pdf/calibration_curves_9_16.pdf', divex_9_16, device = 'pdf')
+ggsave('output/figures_tiff/calibration_curves_9_16.tiff', divex_9_16, device = 'tiff')
 
 tar_name <- unique(calib_dat$Target)[17:21]
 divex_17_19 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])
 mod_17_19 <- divex_17_19 + plot_spacer() + plot_spacer() + plot_spacer() 
-ggsave('output/calibration_curves_17_21.pdf', mod_17_19, device = 'pdf')
-
+ggsave('output/figures_pdf/calibration_curves_17_21.pdf', mod_17_19, device = 'pdf')
+ggsave('output/figures_tiff/calibration_curves_17_21.tiff', mod_17_19, device = 'tiff')
 

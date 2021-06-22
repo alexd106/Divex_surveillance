@@ -275,6 +275,9 @@ filt1_all_ave <- filt1_all_dat %>%
 
 write.csv(filt1_all_ave, 'output/data_summaries/filtered_meanData.csv')
 
+# lod calcs to output summary
+write.csv(divex_lod$assaySum, 'output/data_summaries/field_data_assay_summary.csv')
+
 # all standard curve plots for each sampling occasion
 tar_name <- unique(calib_dat$Target)[1:8]
 divex_1_8 <- calib_plot_all(calib_dat[calib_dat$Target %in% tar_name,])

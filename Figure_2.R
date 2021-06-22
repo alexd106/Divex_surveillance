@@ -1,4 +1,4 @@
-# create standard curve plots from qPCR data 
+# create standard curve plot from qPCR standard curve data 
 # Add LOD, LOD3 and LOQ values onto each plot.
 # code for Figure 2
 
@@ -22,7 +22,7 @@ pcr <- read.table('data/positive_cont.txt', header = TRUE, sep = "\t",
 lod_est <- calib_lod(pcr)
 
 # write this file as output
-write.csv(lod_est$assaySum, 'output/data_summaries/assay_summary.csv')
+write.csv(lod_est$assaySum, 'output/data_summaries/standard_curve_assay_summary.csv')
 
 # extract LOD, LOD3 and LOQ values
 LOD <- lod_est$assaySum[1, 6]

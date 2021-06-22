@@ -34,7 +34,7 @@ divex <- read.table('data/divex_water_samples.txt',header = TRUE, sep = "\t",
 pcr <- read.table('data/positive_cont.txt', header = TRUE, sep = "\t", 
                   stringsAsFactors = TRUE)
 
-# data wrangling for calibration curve construction
+# setup variable names for using function in ednar package
 names(calib)[c(1, 3, 5)] <- c("SQ", "Cq", "Target") 
 names(divex)[c(5, 6)] <- c("Ct.value", "calib.curve")
 

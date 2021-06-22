@@ -18,10 +18,10 @@ library(RColorBrewer)
 
 # data import 
 # data for calibration curve
-calib_dat <- read.table('data/dvex_eDNA_calib_2020_07_27.txt', header = TRUE, sep = '\t',
+calib_dat <- read.table('data/dvex_eDNA_calib.txt', header = TRUE, sep = '\t',
                         stringsAsFactors = TRUE)
 # field data 
-field_dat <- read.table('data/dvex_eDNA_field_2020_07_27.txt', header = TRUE, sep = '\t',
+field_dat <- read.table('data/dvex_eDNA_field.txt', header = TRUE, sep = '\t',
                         stringsAsFactors = TRUE)
 
 # data from master calibration curve for LOD, LOD3 and LOQ estimates

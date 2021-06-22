@@ -83,5 +83,5 @@ ggplot(preds, aes(x = sample_dilution, y = CN.back)) +
         axis.text.y = element_text(size = 11),
         plot.margin = unit(c(5.5, 15, 10, 5.5), "points"))
 
-ggsave("output/figures_pdf/est_CN_vs_water_dilution.pdf", device = "pdf")
-ggsave("output/figures_tiff/est_CN_vs_water_dilution.tiff", device = "tiff", dpi = 100)
+ggsave("output/figures_pdf/Figure_3.pdf", device = "pdf")
+ggsave("output/figures_tiff/Figure_3.tiff", device = "tiff", dpi = 100)

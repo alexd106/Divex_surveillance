@@ -92,8 +92,8 @@ p_all <- ggplot(filt_ave, aes(x = Month_n, y = mean_CN)) +
   theme(axis.text.y = element_text(size = 12)) +
   theme(legend.position = "none")
 p_all
-ggsave('output/figures_pdf/all_locations_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
-ggsave('output/figures_tiff/all_locations_CN_log10_filtered.tiff', device = 'tiff', dpi = 100)
+ggsave('output/figures_pdf/Figure_4.pdf', device = 'pdf', dpi = 600)
+ggsave('output/figures_tiff/Figure_4.tiff', device = 'tiff', dpi = 100)
 
 # individual plots for each sampling location 
 # Creran data 

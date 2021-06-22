@@ -93,6 +93,7 @@ p_all <- ggplot(filt_ave, aes(x = Month_n, y = mean_CN)) +
   theme(legend.position = "none")
 p_all
 ggsave('output/all_locations_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+# ggsave('output/all_locations_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
 
 # individual plots for each sampling location 
 # Creran data 
@@ -133,6 +134,7 @@ p <- ggplot(filt1_creran_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.si
   theme(legend.position = "none")
 p
 ggsave('output/creran_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+# ggsave('output/creran_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
 
 # Fairlie data
 filt1_Fairlie_dat <- preds %>%
@@ -171,6 +173,7 @@ p_f <- ggplot(filt1_Fairlie_ave, aes(x = Month_n, y = mean_CN, colour = Sampling
   theme(legend.position = "none")
 p_f
 ggsave('output/fairlie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+# ggsave('output/fairlie_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
 
 # Portavadie data
 filt1_Portavadie_dat <- preds %>%
@@ -209,6 +212,7 @@ p_p <- ggplot(filt1_Portavadie_ave, aes(x = Month_n, y = mean_CN, colour = Sampl
   theme(legend.position = "none")
 p_p
 ggsave('output/portavadie_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+# ggsave('output/portavadie_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
 
 # Largs data
 filt1_Largs_dat <- preds %>%
@@ -247,6 +251,7 @@ p_l <- ggplot(filt1_Largs_ave, aes(x = Month_n, y = mean_CN, colour = Sampling.s
   theme(legend.position = "none")
 p_l
 ggsave('output/largs_CN_log10_filtered.pdf', device = 'pdf', dpi = 600)
+# ggsave('output/largs_CN_log10_filtered.tiff', device = 'tiff', dpi = 600)
 
 # output data files
 # all predicted copy number data where CT.value greater than 41 and less than 
